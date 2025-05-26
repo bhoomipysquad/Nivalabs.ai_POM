@@ -5,7 +5,8 @@ from Pages.base_page import BasePage
 class Responsiveness(BasePage):
     def test_responsiveness_on_multiple_devices(self):
         devices = [
-            {"name": "Desktop", "width": 1920, "height": 1080},
+            {"name": "Desktop", "width": 1920, "height": 1080}, #full HD
+            {"name": "Desktop", "width": 2560, "height": 1440},  # full HD
             {"name": "Tablet", "width": 1024, "height": 1366}, #ipad pro
             {"name": "Mobile", "width": 430, "height": 932} ,#iphone 14 pro max
             {"name": "nest_hub_max", "width": 1280, "height": 800} , #nest hub max
