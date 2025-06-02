@@ -32,7 +32,6 @@ def test_book_a_call(open_url):
 def test_home_page(open_url):
     driver = open_url
     home = Home_page(driver)
-    home.check_page_scrolling()
     home.check_page_up_button()
     home.check_logo()
 

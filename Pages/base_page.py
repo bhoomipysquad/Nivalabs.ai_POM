@@ -45,6 +45,7 @@ class BasePage:
         for i in range(50):  # Scroll down 50 times
             self.driver.execute_script("window.scrollBy(0, 100);")
             time.sleep(0.5)
+        time.sleep(2)
 
     def scroll_updown_to_check_responsive(self):
             max_scrolls = 50

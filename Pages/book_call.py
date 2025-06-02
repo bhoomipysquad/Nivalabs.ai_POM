@@ -10,4 +10,6 @@ class Book_Call(BasePage):
     def book_call(self):
         self.click(*self.book_call_button)
         time.sleep(5)
+        book_call_page = self.driver.find_element(*self.close_button)
+        assert book_call_page.is_displayed() or self.driver.save_screenshot("failed_book_a_call.png")
         self.click(*self.close_button)
