@@ -13,7 +13,9 @@ class Blog(BasePage):
         self.scroll_down_only()
         self.click(*self.view_all)
         blog_url = f"{Base_url}blogs"
-        assert self.driver.current_url == blog_url or self.driver.save_screenshot("failed_blog_url.png")
+        if self.driver.current_url != blog_url:
+            self.driver.save_screenshot("failed_blog_url.png")
+            assert False, f"Blog page URL mismatch. Expected: {blog_url}, Found: {self.driver.current_url}"
         time.sleep(2)
         self.scroll_blogs_page()
         self.scroll_up_only()
@@ -26,7 +28,9 @@ class Blog(BasePage):
             self.scroll_up_down()
             # print(self.driver.current_url)
             # print(blog_url)
-            assert self.driver.current_url == blog_url or self.driver.save_screenshot("failed_to_open_Blog.png")
+            if self.driver.current_url != blog_url:
+                self.driver.save_screenshot("failed_to_open_Blog.png")
+                assert False, f"Failed to open blog. Expected URL: {blog_url}, Actual URL: {self.driver.current_url}"
             self.driver.back()
             time.sleep(2)
 
